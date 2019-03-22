@@ -1,9 +1,25 @@
-import 'reflect-metadata';
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { User } from './entity/user';
+import {
+  Column,
+  createConnection,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
-}
-bootstrap();
+const main = async () => {
+  const conn = await createConnection({
+    type: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: 'password',
+    database: 'dev',
+    entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+    synchronize: true,
+  });
+  const u = new User();
+  u.name = 'aaa';
+  // conn.manager.insert(u);
+};
+
+main();
