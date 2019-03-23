@@ -18,7 +18,8 @@ react, apollo, graphql-codegen playground
 - SSR
 - apollo-link-state
 - production build
-- deployment(now and netlify)
+- deployment
+- subscription
 
 ## Setup
 
@@ -36,7 +37,7 @@ $ docker-compose up -d
 $ yarn dev
 ```
 
-## Production
+## Deployment
 
 - Edit `.env`'s mysql password
 

@@ -3,12 +3,13 @@ schema:
   - ./graphql/schema.graphql
 documents:
   - ./graphql/queries/*.graphql
+  - ./graphql/mutations/*.graphql
 generates:
   ./server/gen/graphql-resolver-types.ts:
     plugins:
       - typescript
       - typescript-resolvers
-  ./client/gen/graphql-query-types.tsx:
+  ./client/gen/graphql-client-api.tsx:
     plugins:
       - typescript
       - typescript-operations

@@ -4,25 +4,50 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import { BrowserRouter } from 'react-router-dom';
 import { createApolloClient } from './createApolloClient';
-import { useUsersQuery } from './gen/graphql-query-types';
+import {
+  useUsersQuery,
+  useAddUserMutation,
+  useDeleteUserMutation,
+} from './gen/graphql-client-api';
 
 const client = createApolloClient();
 
 function UserList() {
-  const { data } = useUsersQuery();
+  const usersQuery = useUsersQuery();
+  const addUserMutation = useAddUserMutation();
+  const deleteUserMutation = useDeleteUserMutation();
+
   return (
     <>
       <h1>Users</h1>
       <ul>
-        {data.users &&
-          data.users.map(user => {
+        {!usersQuery.loading &&
+          usersQuery.data.users.map(user => {
             return (
               <li key={user.id}>
                 {user.id}:{user.name}
+                <button
+                  onClick={async () => {
+                    await deleteUserMutation({ variables: { id: user.id } });
+                    usersQuery.refetch();
+                  }}
+                >
+                  delete
+                </button>
               </li>
             );
           })}
       </ul>
+      <button
+        onClick={async () => {
+          await addUserMutation({
+            variables: { name: Math.random().toString() },
+          });
+          usersQuery.refetch();
+        }}
+      >
+        addUser
+      </button>
     </>
   );
 }

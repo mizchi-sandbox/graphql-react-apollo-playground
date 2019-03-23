@@ -25,6 +25,11 @@ const Mutation: MutationResolvers = {
     await User.save(newUser);
     return newUser;
   },
+  async deleteUser(_parent, args, _context, _info) {
+    const user = await User.findOne(args.id);
+    await User.delete(args.id);
+    return user;
+  },
 };
 
 export const resolvers: Resolvers = {

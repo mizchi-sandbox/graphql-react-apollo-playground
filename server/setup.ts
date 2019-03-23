@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import { createConnection, BaseEntity } from 'typeorm';
 import { User } from './entity/User';
 
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
 const ensureConnection = async () => {
   const conn = await createConnection({
     type: 'mysql',
@@ -19,6 +21,5 @@ const ensureConnection = async () => {
 };
 
 export default async () => {
-  dotenv.config({ path: path.join(__dirname, '../.env') });
   ensureConnection();
 };

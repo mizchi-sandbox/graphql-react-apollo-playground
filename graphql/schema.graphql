@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
   addUser(name: String!): User!
+  deleteUser(id: ID!): User!
 }
 
 type User {

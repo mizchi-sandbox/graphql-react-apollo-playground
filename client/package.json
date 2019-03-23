@@ -7,7 +7,9 @@
     "dev": "parcel index.html"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
+    "apollo-link-http": "^1.5.14",
     "react": "^16.8.5",
     "react-apollo": "^2.5.2",
     "react-apollo-hooks": "^0.4.3",

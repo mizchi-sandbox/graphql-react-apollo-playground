@@ -6,6 +6,6 @@
   "password": "password",
   "database": "dev",
   "entities": ["src/entity/*.ts"],
-  "migrations": ["src/migrations"],
+  "migrations": ["src/migration"],
   "synchronize": false
 }

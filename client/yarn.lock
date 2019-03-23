@@ -857,7 +857,18 @@ anymatch@^2.0.0:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
 
-apollo-cache@1.2.1:
+apollo-cache-inmemory@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/apollo-cache-inmemory/-/apollo-cache-inmemory-1.5.1.tgz#265d1ee67b0bf0aca9c37629d410bfae44e62953"
+  integrity sha512-D3bdpPmWfaKQkWy8lfwUg+K8OBITo3sx0BHLs1B/9vIdOIZ7JNCKq3EUcAgAfInomJUdN0QG1yOfi8M8hxkN1g==
+  dependencies:
+    apollo-cache "^1.2.1"
+    apollo-utilities "^1.2.1"
+    optimism "^0.6.9"
+    ts-invariant "^0.2.1"
+    tslib "^1.9.3"
+
+apollo-cache@1.2.1, apollo-cache@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/apollo-cache/-/apollo-cache-1.2.1.tgz#aae71eb4a11f1f7322adc343f84b1a39b0693644"
   integrity sha512-nzFmep/oKlbzUuDyz6fS6aYhRmfpcHWqNkkA9Bbxwk18RD6LXC4eZkuE0gXRX0IibVBHNjYVK+Szi0Yied4SpQ==
@@ -886,6 +897,24 @@ apollo-link-dedup@^1.0.0:
   integrity sha512-1rr54wyMTuqUmbWvcXbwduIcaCDcuIgU6MqQ599nAMuTrbSOXthGfoAD8BDTxBGQ9roVlM7ABP0VZVEWRoHWSg==
   dependencies:
     apollo-link "^1.2.11"
+    tslib "^1.9.3"
+
+apollo-link-http-common@^0.2.13:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/apollo-link-http-common/-/apollo-link-http-common-0.2.13.tgz#c688f6baaffdc7b269b2db7ae89dae7c58b5b350"
+  integrity sha512-Uyg1ECQpTTA691Fwx5e6Rc/6CPSu4TB4pQRTGIpwZ4l5JDOQ+812Wvi/e3IInmzOZpwx5YrrOfXrtN8BrsDXoA==
+  dependencies:
+    apollo-link "^1.2.11"
+    ts-invariant "^0.3.2"
+    tslib "^1.9.3"
+
+apollo-link-http@^1.5.14:
+  version "1.5.14"
+  resolved "https://registry.yarnpkg.com/apollo-link-http/-/apollo-link-http-1.5.14.tgz#ed6292248d1819ccd16523e346d35203a1b31109"
+  integrity sha512-XEoPXmGpxFG3wioovgAlPXIarWaW4oWzt8YzjTYZ87R4R7d1A3wKR/KcvkdMV1m5G7YSAHcNkDLe/8hF2nH6cg==
+  dependencies:
+    apollo-link "^1.2.11"
+    apollo-link-http-common "^0.2.13"
     tslib "^1.9.3"
 
 apollo-link@^1.0.0, apollo-link@^1.2.11:
@@ -2638,6 +2667,11 @@ ignore-walk@^3.0.1:
   dependencies:
     minimatch "^3.0.4"
 
+immutable-tuple@^0.4.9:
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/immutable-tuple/-/immutable-tuple-0.4.10.tgz#e0b1625384f514084a7a84b749a3bb26e9179929"
+  integrity sha512-45jheDbc3Kr5Cw8EtDD+4woGRUV0utIrJBZT8XH0TPZRfm8tzT0/sLGGzyyCCFqFMG5Pv5Igf3WY/arn6+8V9Q==
+
 import-fresh@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-2.0.0.tgz#d81355c15612d386c61f9ddd3922d4304822a546"
@@ -3585,6 +3619,13 @@ opn@^5.1.0:
   integrity sha512-PqHpggC9bLV0VeWcdKhkpxY+3JTzetLSqTCWL/z/tFIbI6G8JCjondXklT1JinczLz2Xib62sSp0T/gKT4KksA==
   dependencies:
     is-wsl "^1.1.0"
+
+optimism@^0.6.9:
+  version "0.6.9"
+  resolved "https://registry.yarnpkg.com/optimism/-/optimism-0.6.9.tgz#19258ff8b3be0cea29ac35f06bff818e026e30bb"
+  integrity sha512-xoQm2lvXbCA9Kd7SCx6y713Y7sZ6fUc5R6VYpoL5M6svKJbTuvtNopexK8sO8K4s0EOUYHuPN2+yAEsNyRggkQ==
+  dependencies:
+    immutable-tuple "^0.4.9"
 
 optionator@^0.8.1:
   version "0.8.2"

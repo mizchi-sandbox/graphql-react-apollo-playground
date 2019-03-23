@@ -4,10 +4,3 @@ query user($id: ID!) {
     name
   }
 }
-
-query users {
-  users {
-    id
-    name
-  }
-}
