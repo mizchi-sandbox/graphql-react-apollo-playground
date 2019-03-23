@@ -6,7 +6,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 // we're using Express in this example
 export const createApolloClient = () =>
   new ApolloClient({
-    ssrMode: true,
+    // ssrMode: true,
     // Remember that this is the interface the SSR server will use to connect to the
     // API server, so we need to ensure it isn't firewalled, etc
     link: createHttpLink({

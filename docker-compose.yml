@@ -19,6 +19,7 @@ services:
       - '6379:6379'
     command: redis-server --appendonly yes
     volumes:
-      - ./data/redis:/data
+      - redisdata:/data
 volumes:
   dbdata:
+  redisdata:

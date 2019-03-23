@@ -1,37 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import gql from 'graphql-tag';
-import { ApolloProvider, Query } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import { BrowserRouter } from 'react-router-dom';
 import { createApolloClient } from './createApolloClient';
+import { useUsersQuery } from './gen/graphql-query-types';
 
 const client = createApolloClient();
 
-const GET_USERS = gql`
-  {
-    users {
-      id
-      name
-    }
-  }
-`;
-
 function UserList() {
+  const { data } = useUsersQuery();
   return (
-    <Query query={GET_USERS}>
-      {data => {
-        return <div>data: {JSON.stringify(data.data)}</div>;
-      }}
-    </Query>
+    <>
+      <h1>Users</h1>
+      <ul>
+        {data.users &&
+          data.users.map(user => {
+            return (
+              <li key={user.id}>
+                {user.id}:{user.name}
+              </li>
+            );
+          })}
+      </ul>
+    </>
   );
 }
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <BrowserRouter>
-        <UserList />
-      </BrowserRouter>
+      <ApolloHooksProvider client={client}>
+        <BrowserRouter>
+          <UserList />
+        </BrowserRouter>
+      </ApolloHooksProvider>
     </ApolloProvider>
   );
 }

@@ -4,3 +4,4 @@ gen
 .cache
 dist
 *.log
+graphql/schema.json

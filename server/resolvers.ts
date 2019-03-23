@@ -3,7 +3,7 @@ import {
   MutationResolvers,
   QueryResolvers,
   Resolvers,
-} from '../gen/graphql-types';
+} from './gen/graphql-resolver-types';
 import { User } from './entity/User';
 
 const Query: QueryResolvers = {
